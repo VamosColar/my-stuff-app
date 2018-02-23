@@ -35,32 +35,12 @@ services:
       volumes:
         - ./src:/application
         - ./infra/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
-#      environment:
-#        - MONGODB_HOST=mongodb
-#      links:
-#        - mongodb
-
-
-#    mongodb:
-#      image: mongo:latest
-#      container_name: my-stuff-mongodb
-#      volumes:
-#       - ./infra/mongodb:/data/db
-#      environment:
-#              - MONGO_DATA_DIR=/data/db
-#              - MONGO_LOG_DIR=/dev/null
-#              - MONGODB_USER=root
-#              - MONGODB_PASS=root
-#      ports:
-#       - "27017:27017"
-#      command:
-#       - --storageEngine wiredTiger
 
     mongodb:
       image: mongo
       container_name: my-stuff-mongodb
       environment:
-        - MONGO_INITDB_ROOT_USERNAME=admin
-        - MONGO_INITDB_ROOT_PASSWORD=admin
+        - MONGO_INITDB_ROOT_USERNAME=root
+        - MONGO_INITDB_ROOT_PASSWORD=root
       ports:
         - "27017:27017"
