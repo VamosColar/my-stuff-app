@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbdcca11e2113bcc195687cf328043e3",
+    "content-hash": "07650fa430bee222d8b42f864d10ca1e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -3218,6 +3218,7 @@
         },
         {
             "name": "symfony/maker-bundle",
+<<<<<<< HEAD
             "version": "v1.0.2",
             "source": {
                 "type": "git",
@@ -3228,6 +3229,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/bf97703ddb68c6b37bd6bab5f5ebd5c7542ca1ef",
                 "reference": "bf97703ddb68c6b37bd6bab5f5ebd5c7542ca1ef",
+=======
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/maker-bundle.git",
+                "reference": "ba427289009de6f0fd51fb51186eeaa70ab3a33d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/maker-bundle/zipball/ba427289009de6f0fd51fb51186eeaa70ab3a33d",
+                "reference": "ba427289009de6f0fd51fb51186eeaa70ab3a33d",
+>>>>>>> db94426cecd953a091d377d0dda5878c015267c7
                 "shasum": ""
             },
             "require": {
@@ -3240,6 +3253,10 @@
                 "symfony/http-kernel": "^3.4|^4.0"
             },
             "require-dev": {
+<<<<<<< HEAD
+=======
+                "allocine/twigcs": "^3.0",
+>>>>>>> db94426cecd953a091d377d0dda5878c015267c7
                 "friendsofphp/php-cs-fixer": "^2.8",
                 "symfony/phpunit-bridge": "^3.4|^4.0",
                 "symfony/process": "^3.4|^4.0"
@@ -3265,13 +3282,22 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+<<<<<<< HEAD
+=======
+            "description": "Symfony Maker helps you create empty commands, controllers, form classes, tests and more so you can forget about writing boilerplate code.",
+            "homepage": "https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html",
+>>>>>>> db94426cecd953a091d377d0dda5878c015267c7
             "keywords": [
                 "code generator",
                 "generator",
                 "scaffold",
                 "scaffolding"
             ],
+<<<<<<< HEAD
             "time": "2017-12-04T17:50:28+00:00"
+=======
+            "time": "2018-02-21T19:43:12+00:00"
+>>>>>>> db94426cecd953a091d377d0dda5878c015267c7
         },
         {
             "name": "symfony/monolog-bridge",
@@ -3922,7 +3948,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kévin Dunglas",
+                    "name": "K??vin Dunglas",
                     "email": "dunglas@gmail.com"
                 },
                 {
@@ -4828,7 +4854,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kévin Dunglas",
+                    "name": "K??vin Dunglas",
                     "email": "dunglas@gmail.com"
                 },
                 {
@@ -5323,7 +5349,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-François Simon",
+                    "name": "Jean-Fran??ois Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
