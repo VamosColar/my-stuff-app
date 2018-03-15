@@ -5,10 +5,10 @@
 http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="App\Entity\Genero">
-        <id name="id_genero" type="integer">
+        <id name="idGenero" column="id_genero" type="integer">
             <generator strategy="AUTO"/>
         </id>
-        <field name="gene_nome" type="string" length="255"/>
+        <field name="geneNome" column="gene_nome" type="string" length="255"/>
     </entity>
 
 </doctrine-mapping>

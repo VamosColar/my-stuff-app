@@ -5,14 +5,14 @@
 http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="App\Entity\Usuario">
-        <id name="id_usuario" type="integer">
+        <id name="idUsuario" column="id_usuario" type="integer">
             <generator strategy="AUTO"/>
         </id>
-        <field name="usua_nome" type="string" length="255"/>
-        <field name="usua_email" type="string" length="255"/>
-        <field name="usua_senha" type="string" length="255"/>
-        <field name="created_at" type="datetime"/>
-        <field name="updated_at" type="datetime"/>
+        <field name="usuaNome" column="usua_nome" type="string" length="255"/>
+        <field name="usuaEmail" column="usua_email" type="string" length="255"/>
+        <field name="usuaSenha" column="usua_senha" type="string" length="255"/>
+        <field name="createdAt" column="created_at" type="datetime"/>
+        <field name="updatedAt" column="updated_at" type="datetime"/>
     </entity>
 
 </doctrine-mapping>

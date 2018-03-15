@@ -9,15 +9,15 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Usuario
 {
-    private $id_usuario;
+    private $idUsuario;
 
-    protected $usua_nome;
+    protected $usuaNome;
 
-    protected $usua_email;
+    protected $usuaEmail;
 
-    protected $usua_senha;
+    protected $usuaSenha;
 
-    protected $created_at;
+    protected $createdAt;
 
-    protected $updated_at;
+    protected $updatedAt;
 }

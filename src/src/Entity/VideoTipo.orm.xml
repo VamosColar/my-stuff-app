@@ -5,10 +5,10 @@
 http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="App\Entity\VideoTipo">
-        <id name="id_video_tipo" type="integer">
+        <id name="idVideoTipo" column="id_video_tipo" type="integer">
             <generator strategy="AUTO"/>
         </id>
-        <field name="vide_tip_nome" type="string" length="255"/>
+        <field name="videTipNome" column="vide_tip_nome" type="string" length="255"/>
     </entity>
 
 </doctrine-mapping>

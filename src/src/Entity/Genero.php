@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Genero
 {
-    private $id_genero;
+    private $idGenero;
 
-    protected $gene_nome;
+    protected $geneNome;
 }

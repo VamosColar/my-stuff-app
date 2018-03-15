@@ -9,33 +9,33 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Videos
 {
-    private $id_video;
+    private $idVideo;
 
-    protected $vide_titulo;
+    protected $videTitulo;
 
-    protected $vide_descricao;
+    protected $videDescricao;
 
-    protected $vide_ano;
+    protected $videAno;
 
-    protected $vide_duracao;
+    protected $videDuracao;
 
-    protected $vide_imagem_diretorio;
+    protected $videImagemDiretorio;
 
-    protected $temporada_numero;
+    protected $videTemporadaNumero;
 
-    protected $cod_genero;
+    protected $codGenero;
 
-    protected $cod_video_tipo;
+    protected $codVideoTipo;
 
-    protected $created_at;
+    protected $createdAt;
 
-    protected $updated_at;
+    protected $updatedAt;
 
-    protected $deleted_at;
+    protected $deletedAt;
 
-    protected $created_by;
+    protected $createdBy;
 
-    protected $updated_by;
+    protected $updatedBy;
 
-    protected $deleted_by;
+    protected $deletedBy;
 }
