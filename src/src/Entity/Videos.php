@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Videos
 {
-    private $idVideo;
+    private $idVideos;
 
     protected $videTitulo;
 

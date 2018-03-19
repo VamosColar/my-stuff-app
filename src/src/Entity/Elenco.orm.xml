@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Entity\Elenco">
+        <id name="idElenco" column="id_elenco" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="elenNome" column="elen_nome" type="string" length="255"/>
+
+        <many-to-one field="codFuncao" target-entity="Funcao">
+            <join-column name="cod_funcao" referenced-column-name="id_funcao" />
+        </many-to-one>
+
+    </entity>
+
+</doctrine-mapping>

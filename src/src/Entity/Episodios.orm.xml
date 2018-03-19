@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Entity\Episodios">
+        <id name="idEpisodios" column="id_episodios" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+        <field name="episNomeTraduzido" column="epis_nome_traduzido" type="string" length="255"/>
+        <field name="episNomeOriginal" column="epis_nome_original" type="string" length="255"/>
+        <field name="episDuracao" column="epis_duracao" type="string" length="255"/>
+        <field name="episDescricao" column="epis_descricao" type="string" length="255"/>
+
+        <many-to-one field="codVideos" target-entity="Videos">
+            <join-column name="cod_videos" referenced-column-name="id_videos" />
+        </many-to-one>
+
+    </entity>
+
+</doctrine-mapping>

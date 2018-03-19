@@ -5,7 +5,7 @@
 http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="App\Entity\Videos">
-        <id name="idVideo" column="id_video" type="integer">
+        <id name="idVideos" column="id_videos" type="integer">
             <generator strategy="AUTO"/>
         </id>
         <field name="videTitulo" column="vide_titulo" type="string" length="255"/>
