@@ -22,12 +22,23 @@ http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
         <field name="deletedBy" column="deleted_by" type="datetime" nullable="true"/>
 
         <many-to-one field="codGenero" target-entity="Genero">
-            <join-column name="cod_genero" referenced-column-name="id_genero" />
+            <join-column name="cod_genero" referenced-column-name="id_genero"/>
         </many-to-one>
 
         <many-to-one field="codVideoTipo" target-entity="VideoTipo">
-            <join-column name="cod_video_tipo" referenced-column-name="id_video_tipo" />
+            <join-column name="cod_video_tipo" referenced-column-name="id_video_tipo"/>
         </many-to-one>
+
+        <many-to-many field="videos" inversed-by="elencos" target-entity="Elenco">
+            <join-table name="elenco_videos">
+                <join-columns>
+                    <join-column name="cod_videos" referenced-column-name="id_videos" unique="false"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="cod_elenco" referenced-column-name="id_elenco" unique="false"/>
+                </inverse-join-columns>
+            </join-table>
+        </many-to-many>
 
     </entity>
 
