@@ -14,7 +14,7 @@ http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
             <join-column name="cod_funcao" referenced-column-name="id_funcao" />
         </many-to-one>
 
-        <many-to-many field="elencos" mapped-by="videos" target-entity="Videos"/>
+        <many-to-many field="videos" mapped-by="elencos" target-entity="Videos"/>
 
     </entity>
 

@@ -29,7 +29,7 @@ http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
             <join-column name="cod_video_tipo" referenced-column-name="id_video_tipo"/>
         </many-to-one>
 
-        <many-to-many field="videos" inversed-by="elencos" target-entity="Elenco">
+        <many-to-many field="elencos" inversed-by="videos" target-entity="Elenco">
             <join-table name="elenco_videos">
                 <join-columns>
                     <join-column name="cod_videos" referenced-column-name="id_videos" unique="false"/>

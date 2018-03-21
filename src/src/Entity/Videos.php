@@ -38,4 +38,6 @@ class Videos
     protected $updatedBy;
 
     protected $deletedBy;
+
+    protected $elencos;
 }

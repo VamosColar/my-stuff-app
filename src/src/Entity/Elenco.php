@@ -15,4 +15,5 @@ class Elenco
 
     protected $codFuncao;
 
+    protected $videos;
 }
