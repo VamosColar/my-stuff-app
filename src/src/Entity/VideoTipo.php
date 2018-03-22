@@ -11,5 +11,29 @@ class VideoTipo
 {
     private $idVideoTipo;
 
-    protected $videTipNome;
+    private $videTipNome;
+
+    /**
+     * @return mixed
+     */
+    public function getIdVideoTipo()
+    {
+        return $this->idVideoTipo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVideTipNome()
+    {
+        return $this->videTipNome;
+    }
+
+    /**
+     * @param mixed $videTipNome
+     */
+    public function setVideTipNome($videTipNome)
+    {
+        $this->videTipNome = $videTipNome;
+    }
 }
