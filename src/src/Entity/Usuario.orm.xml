@@ -12,7 +12,7 @@ http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
         <field name="usuaEmail" column="usua_email" type="string" length="255"/>
         <field name="usuaSenha" column="usua_senha" type="string" length="255"/>
         <field name="createdAt" column="created_at" type="datetime"/>
-        <field name="updatedAt" column="updated_at" type="datetime"/>
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
     </entity>
 
 </doctrine-mapping>

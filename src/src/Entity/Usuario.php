@@ -11,13 +11,101 @@ class Usuario
 {
     private $idUsuario;
 
-    protected $usuaNome;
+    private $usuaNome;
 
-    protected $usuaEmail;
+    private $usuaEmail;
 
-    protected $usuaSenha;
+    private $usuaSenha;
 
-    protected $createdAt;
+    private $createdAt;
 
-    protected $updatedAt;
+    private $updatedAt;
+
+    /**
+     * @return mixed
+     */
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsuaNome()
+    {
+        return $this->usuaNome;
+    }
+
+    /**
+     * @param mixed $usuaNome
+     */
+    public function setUsuaNome($usuaNome)
+    {
+        $this->usuaNome = $usuaNome;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsuaEmail()
+    {
+        return $this->usuaEmail;
+    }
+
+    /**
+     * @param mixed $usuaEmail
+     */
+    public function setUsuaEmail($usuaEmail)
+    {
+        $this->usuaEmail = $usuaEmail;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUsuaSenha()
+    {
+        return $this->usuaSenha;
+    }
+
+    /**
+     * @param mixed $usuaSenha
+     */
+    public function setUsuaSenha($usuaSenha)
+    {
+        $this->usuaSenha = $usuaSenha;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param mixed $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param mixed $updatedAt
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+    }
 }
