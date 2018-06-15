@@ -9,8 +9,6 @@
 namespace tests\Repository;
 
 use App\Repository\VideosRepository;
-use Doctrine\ORM\EntityManager;
-use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class VideosRepositoryTest extends KernelTestCase
@@ -19,24 +17,24 @@ class VideosRepositoryTest extends KernelTestCase
 
     protected $em;
 
+    static $kernel;
+
     protected function setUp()
     {
-        $kernel = self::bootKernel();
+        self::$kernel = self::bootKernel();
 
-        $this->em = $kernel->getContainer()
+        $this->em = self::$kernel->getContainer()
             ->get('doctrine')
             ->getManager();
     }
 
     public function testInserindoDados()
     {
-        $input = ['dados'];
+        $input = [
+            'titulo' => 'Um dia'
+        ];
 
         $repository = new VideosRepository($this->em);
-
-        $videos =$repository->save($input);
-
-        var_dump($videos);
+        $repository->save($input);
     }
-
 }

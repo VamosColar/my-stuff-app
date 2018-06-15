@@ -9,15 +9,15 @@ class VideosRepository
 {
     protected $entity;
 
-    public function __construct(EntityManager $entityManager)
+    public function __construct(EntityManager $entityRepository)
     {
-        $this->entity = $entityManager;
+        $this->entity = $entityRepository;
     }
 
     public function save(array $input)
     {
         $videos = new Videos();
-        $videos->setVideTitulo($input);
+        $videos->setVideTitulo($input['titulo']);
         $this->entity->persist($videos);
         $this->entity->flush();
 
