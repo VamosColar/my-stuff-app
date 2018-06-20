@@ -43,4 +43,13 @@ class VideosRepositoryTest extends KernelTestCase
 
         $this->assertTrue($save);
     }
+
+    public function testObtendotodosOsDados()
+    {
+        $repository = new VideosRepository($this->em);
+
+        $all = $repository->all();
+
+        $this->assertNotEmpty($all);
+    }
 }

@@ -31,8 +31,12 @@ class VideosRepository
         return true;
     }
 
-    public function all()
+    public function all(array $input = null)
     {
-        
+        $videos = Videos::class;
+
+        $query = $this->entity->createQuery("SELECT v FROM {$videos} v");
+
+        return $query->getResult();
     }
 }
