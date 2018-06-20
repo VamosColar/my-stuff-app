@@ -31,10 +31,16 @@ class VideosRepositoryTest extends KernelTestCase
     public function testInserindoDados()
     {
         $input = [
-            'titulo' => 'Um dia'
+            'vide_titulo' => 'O Estrangeiro',
+            'vide_descricao' => 'Um empresário.',
+            'vide_ano' => '2017',
+            'vide_duracao' => '1h 56m',
         ];
 
         $repository = new VideosRepository($this->em);
-        $repository->save($input);
+
+        $save = $repository->save($input);
+
+        $this->assertTrue($save);
     }
 }
