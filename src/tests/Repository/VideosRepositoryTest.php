@@ -35,6 +35,8 @@ class VideosRepositoryTest extends KernelTestCase
             'vide_descricao' => 'Um empresário.',
             'vide_ano' => '2017',
             'vide_duracao' => '1h 56m',
+            'cod_genero' => 1,
+            'cod_video_tipo' => 9,
         ];
 
         $repository = new VideosRepository($this->em);

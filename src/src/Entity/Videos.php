@@ -148,6 +148,38 @@ class Videos
     /**
      * @return mixed
      */
+    public function getCodGenero()
+    {
+        return $this->codGenero;
+    }
+
+    /**
+     * @param mixed $codGenero
+     */
+    public function setCodGenero($codGenero)
+    {
+        $this->codGenero = $codGenero;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodVideoTipo()
+    {
+        return $this->codVideoTipo;
+    }
+
+    /**
+     * @param mixed $codVideoTipo
+     */
+    public function setCodVideoTipo($codVideoTipo)
+    {
+        $this->codVideoTipo = $codVideoTipo;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getCreatedAt()
     {
         return $this->createdAt;

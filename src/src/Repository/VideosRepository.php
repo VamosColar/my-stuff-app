@@ -2,7 +2,9 @@
 
 namespace App\Repository;
 
+use App\Entity\Genero;
 use App\Entity\Videos;
+use App\Entity\VideoTipo;
 use Doctrine\ORM\EntityManager;
 
 class VideosRepository
@@ -18,11 +20,17 @@ class VideosRepository
     {
         $date = new \DateTime();
 
+        $genero = $this->entity->find(Genero::class, $input['cod_genero']);
+
+        $videoTipo = $this->entity->find(VideoTipo::class, $input['cod_video_tipo']);
+
         $videos = new Videos();
         $videos->setVideTitulo($input['vide_titulo']);
         $videos->setVideDescricao($input['vide_descricao']);
         $videos->setVideAno($input['vide_ano']);
         $videos->setVideDuracao($input['vide_duracao']);
+        $videos->setCodGenero($genero);
+        $videos->setCodVideoTipo($videoTipo);
         $videos->setCreatedAt($date);
         $videos->setCreatedBy(1);
         $this->entity->persist($videos);
@@ -38,5 +46,12 @@ class VideosRepository
         $query = $this->entity->createQuery("SELECT v FROM {$videos} v");
 
         return $query->getResult();
+    }
+
+    public function find(int $id)
+    {
+        $videos = Videos::class;
+
+//        $query = $this->entity->
     }
 }
