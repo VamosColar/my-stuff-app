@@ -10,6 +10,7 @@ namespace tests\Repository;
 
 use App\Repository\VideosRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+//use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class VideosRepositoryTest extends KernelTestCase
 {
@@ -37,6 +38,7 @@ class VideosRepositoryTest extends KernelTestCase
             'vide_duracao' => '1h 56m',
             'cod_genero' => 1,
             'cod_video_tipo' => 9,
+            'vide_imagem_diretorio' => '/application/public/upload/my-stuff.jpg',
         ];
 
         $repository = new VideosRepository($this->em);
