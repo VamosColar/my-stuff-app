@@ -6,12 +6,12 @@
  * Time: 17:17
  */
 
-namespace tests\Repository;
+namespace tests\Videos\Repositorios;
 
-use App\Repository\VideosRepository;
+use MyStuff\Videos\Repositorios\VideosRepositorios;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class VideosRepositoryTest extends KernelTestCase
+class VideosRepositorTest extends KernelTestCase
 {
     protected $repository;
 
@@ -40,7 +40,7 @@ class VideosRepositoryTest extends KernelTestCase
             'vide_imagem_diretorio' => '/application/public/upload/my-stuff.jpg',
         ];
 
-        $repository = new VideosRepository($this->em);
+        $repository = new VideosRepositorios($this->em);
 
         $save = $repository->save($input);
 
@@ -49,7 +49,7 @@ class VideosRepositoryTest extends KernelTestCase
 
     public function testObtendotodosOsDados()
     {
-        $repository = new VideosRepository($this->em);
+        $repository = new VideosRepositorios($this->em);
 
         $all = $repository->all();
 
