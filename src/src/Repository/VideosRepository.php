@@ -26,11 +26,6 @@ class VideosRepository
 
         $videoTipo = $this->entity->find(VideoTipo::class, $input['cod_video_tipo']);
 
-        $fileSystem = new Filesystem();
-        $destiny = "/application/public/images/" . md5(time()) . ".jpg";
-        $fileSystem->copy($input['vide_imagem_diretorio'], $destiny);
-        $fileSystem->chmod('/application/public/images/', 0777, 0000, true);
-
         $videos = new Videos();
         $videos->setVideTitulo($input['vide_titulo']);
         $videos->setVideDescricao($input['vide_descricao']);
@@ -38,13 +33,41 @@ class VideosRepository
         $videos->setVideDuracao($input['vide_duracao']);
         $videos->setCodGenero($genero);
         $videos->setCodVideoTipo($videoTipo);
-        $videos->setVideImagemDiretorio($destiny);
+        $videos->setVideImagemDiretorio($this->fileManager($input['vide_imagem_diretorio']));
         $videos->setCreatedAt($date);
         $videos->setCreatedBy(1);
         $this->entity->persist($videos);
         $this->entity->flush();
 
         return true;
+    }
+
+    protected function fileManager($file)
+    {
+        if ($file == null) {
+            return $file;
+        }
+
+        //Pegando extensão da imagem
+        $extension = pathinfo($file, PATHINFO_EXTENSION);
+
+        //Verificando a extensão permitida
+        if (!$extension == 'jpg' or !$extension == 'png') {
+            throw new \Exception('É permitido apenas imagens do tipo jpg ou png.');
+        }
+
+        //Definindo um nome para o arquivo
+        $destiny = "/application/public/images/" . md5(time()) . "." . $extension;
+
+        $fileSystem = new Filesystem();
+
+        //Copiando a imagem de local e enviado para pasta images
+        $fileSystem->copy($file, $destiny);
+
+        //Definindo a permissão para as imagens
+        $fileSystem->chmod('/application/public/images/', 0777, 0000, true);
+
+        return $destiny;
     }
 
     public function all(array $input = null)
@@ -62,4 +85,6 @@ class VideosRepository
 
 //        $query = $this->entity->
     }
+
+
 }

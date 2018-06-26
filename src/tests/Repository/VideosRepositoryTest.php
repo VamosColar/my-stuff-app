@@ -10,7 +10,6 @@ namespace tests\Repository;
 
 use App\Repository\VideosRepository;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-//use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class VideosRepositoryTest extends KernelTestCase
 {
