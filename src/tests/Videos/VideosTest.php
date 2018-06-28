@@ -24,35 +24,71 @@ class VideosTest extends TestCase
         $this->repositorio = $this->prophesize(VideosRepositorios::class);
 
         $this->negocio = new Videos($this->repositorio->reveal());
-
     }
 
     public function testInserindoDados()
     {
-        $input = [
-            'titulo' => 'Um titulo',
-            'descricao' => 'Um empresário.',
-            'ano' => '2017',
-            'duracao' => '1h 56m',
-            'genero' => 1,
-            'videoTipo' => 9,
-            'imagemDiretorio' => '/application/public/upload/my-stuff.jpg',
-        ];
+        $inputRepo = $this->inputRepo();
+        $outputRepo = $this->outputRepo();
+        $input = $this->input();
+        $output = $this->output();
 
-        $output = [
-            'titulo' => 'Um titulo',
-            'descricao' => 'Um empresário.',
-            'ano' => '2017',
-            'duracao' => '1h 56m',
-            'genero' => 1,
-            'videoTipo' => 9,
-            'imagemDiretorio' => '/application/public/upload/my-stuff.jpg',
-        ];
-
-        $this->repositorio->save($input)->willReturn($output)->shouldBeCalled();
+        $this->repositorio->save($inputRepo)->willReturn($outputRepo)->shouldBeCalled();
 
         $save = $this->negocio->save($input);
-
         $this->assertEquals($output, $save);
+    }
+
+    protected function input()
+    {
+        return [
+            'titulo' => 'Um titulo',
+            'descricao' => 'Um empresário.',
+            'ano' => '2017',
+            'duracao' => '1h 56m',
+            'genero' => 1,
+            'videoTipo' => 9,
+            'imagemDiretorio' => null,
+        ];
+    }
+
+    protected function output()
+    {
+        return [
+            'titulo' => 'Um titulo',
+            'descricao' => 'Um empresário.',
+            'ano' => '2017',
+            'duracao' => '1h 56m',
+            'genero' => 1,
+            'videoTipo' => 9,
+            'imagemDiretorio' => null,
+
+        ];
+    }
+
+    protected function inputRepo()
+    {
+        return [
+            'vide_titulo' => 'Um titulo',
+            'vide_descricao' => 'Um empresário.',
+            'vide_ano' => '2017',
+            'vide_duracao' => '1h 56m',
+            'cod_genero' => 1,
+            'cod_video_tipo' => 9,
+            'vide_imagem_diretorio' => null,
+        ];
+    }
+
+    protected function outputRepo()
+    {
+        return [
+            'vide_titulo' => 'Um titulo',
+            'vide_descricao' => 'Um empresário.',
+            'vide_ano' => '2017',
+            'vide_duracao' => '1h 56m',
+            'cod_genero' => 1,
+            'cod_video_tipo' => 9,
+            'vide_imagem_diretorio' => null,
+        ];
     }
 }

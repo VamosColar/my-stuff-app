@@ -22,7 +22,15 @@ class VideosRepositorios
 
         $genero = $this->entity->find(Genero::class, $input['cod_genero']);
 
+        if ($genero == null) {
+            throw new \Exception('O Gênero não foi encontrado.');
+        }
+
         $videoTipo = $this->entity->find(VideoTipo::class, $input['cod_video_tipo']);
+
+        if ($videoTipo == null) {
+            throw new \Exception('O Video Tipo não foi encontrado.');
+        }
 
         $videos = new Videos();
         $videos->setVideTitulo($input['vide_titulo']);

@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace MyStuff\Videos;
 
-
 use MyStuff\Videos\Repositorios\VideosRepositorios;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -31,10 +30,27 @@ class Videos
         return $this->tratarSaida($save);
     }
 
+    /**
+     * @param $file
+     * @return string
+     * @throws \Exception
+     *
+     * Tratando o envio de imagem
+     */
     protected function fileManager($file)
     {
+        $date = new \DateTime();
+
         if ($file == null) {
             return $file;
+        }
+
+        //Obtendo o tamanho da imagem
+        $size = filesize($file);
+
+        //Definindo o tamanho máximo da imagem
+        if ($size > 2097152) {
+            throw new \Exception('O tamanho máximo da imagem permitido é de 2mb.');
         }
 
         //Pegando extensão da imagem
@@ -44,10 +60,10 @@ class Videos
         if (!$extension == 'jpg' or !$extension == 'png') {
             throw new \Exception('É permitido apenas imagens do tipo jpg ou png.');
         }
+        $dateFormat = $date->format('Y-m-d\TH:i:s.u');
 
         //Definindo o caminho de destino, nome da imagem e extensão
-        $destiny = "/application/public/images/" . md5(time()) . "." . $extension;
-
+        $destiny = "/application/public/images/" . md5($dateFormat) . "." . $extension;
         $fileSystem = new Filesystem();
 
         //Copiando a imagem local e enviado para pasta images
@@ -59,6 +75,12 @@ class Videos
         return $destiny;
     }
 
+    /**
+     * @param $tratar
+     * @return array
+     *
+     * Tratando entrada de dados
+     */
     protected function tratarEntrada($tratar)
     {
         return [
@@ -68,10 +90,16 @@ class Videos
             'vide_duracao' => $tratar['duracao'],
             'cod_genero' => $tratar['genero'],
             'cod_video_tipo' => $tratar['videoTipo'],
-            'vide_imagem_diretorio' => $tratar['imagemDiretorio'],
+            'vide_imagem_diretorio' => $this->fileManager($tratar['imagemDiretorio']),
         ];
     }
 
+    /**
+     * @param $tratar
+     * @return array
+     *
+     * Tratando saída de dados
+     */
     protected function tratarSaida($tratar)
     {
         return [
