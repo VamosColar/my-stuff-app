@@ -36,7 +36,29 @@ class VideosTest extends TestCase
         $this->repositorio->save($inputRepo)->willReturn($outputRepo)->shouldBeCalled();
 
         $save = $this->negocio->save($input);
+
         $this->assertEquals($output, $save);
+    }
+
+    /**
+     * @expectedException \Exception
+     * @expectedExceptionMessage É permitido apenas imagens do tipo jpg ou png.
+     */
+    public function testInserindoImagemDoTipoNaoPermitido()
+    {
+        $inputRepo = $this->inputRepo();
+        $outputRepo = $this->outputRepo();
+        $input = $this->input();
+
+//        $inputRepo['vide_imagem_diretorio'] = '/application/public/upload/my-stuff.gif';
+//        $outputRepo['vide_imagem_diretorio'] = '/application/public/upload/my-stuff.gif';
+
+        $input['imagemDiretorio'] = '/application/public/upload/my-stuff.gif';
+
+        $this->repositorio->save($inputRepo)->willReturn($outputRepo)->shouldBeCalled();
+
+        $this->negocio->save($input);
+
     }
 
     protected function input()

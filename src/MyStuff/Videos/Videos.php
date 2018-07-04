@@ -58,8 +58,10 @@ class Videos
 
         //Verificando a extensão permitida
         if (!$extension == 'jpg' or !$extension == 'png') {
+            dd('exceção');
             throw new \Exception('É permitido apenas imagens do tipo jpg ou png.');
         }
+
         $dateFormat = $date->format('Y-m-d\TH:i:s.u');
 
         //Definindo o caminho de destino, nome da imagem e extensão
