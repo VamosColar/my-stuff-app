@@ -57,8 +57,7 @@ class Videos
         $extension = pathinfo($file, PATHINFO_EXTENSION);
 
         //Verificando a extensão permitida
-        if (!$extension == 'jpg' or !$extension == 'png') {
-            dd('exceção');
+        if ($extension != 'jpg' or $extension != 'png') {
             throw new \Exception('É permitido apenas imagens do tipo jpg ou png.');
         }
 

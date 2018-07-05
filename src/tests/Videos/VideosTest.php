@@ -42,23 +42,28 @@ class VideosTest extends TestCase
 
     /**
      * @expectedException \Exception
+     * @expectedExceptionMessage O tamanho máximo da imagem permitido é de 2mb.
+     */
+    public function testInserindoImagemMaiorQueOSuportado()
+    {
+        $input = $this->input();
+
+        $input['imagemDiretorio'] = '/application/public/upload/my-stuff-2.4mb.png';
+
+        $this->negocio->save($input);
+    }
+
+    /**
+     * @expectedException \Exception
      * @expectedExceptionMessage É permitido apenas imagens do tipo jpg ou png.
      */
     public function testInserindoImagemDoTipoNaoPermitido()
     {
-        $inputRepo = $this->inputRepo();
-        $outputRepo = $this->outputRepo();
         $input = $this->input();
-
-//        $inputRepo['vide_imagem_diretorio'] = '/application/public/upload/my-stuff.gif';
-//        $outputRepo['vide_imagem_diretorio'] = '/application/public/upload/my-stuff.gif';
 
         $input['imagemDiretorio'] = '/application/public/upload/my-stuff.gif';
 
-        $this->repositorio->save($inputRepo)->willReturn($outputRepo)->shouldBeCalled();
-
         $this->negocio->save($input);
-
     }
 
     protected function input()

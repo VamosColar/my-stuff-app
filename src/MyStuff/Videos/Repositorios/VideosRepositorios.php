@@ -52,6 +52,13 @@ class VideosRepositorios
     {
         $videos = Videos::class;
 
+//        if ($input != null) {
+//
+//            $query = $this->entity->createQuery("SELECT v FROM {$videos} v");
+//
+//
+//        }
+
         $query = $this->entity->createQuery("SELECT v FROM {$videos} v");
 
         return $query->getResult();
@@ -62,6 +69,8 @@ class VideosRepositorios
         $videos = Videos::class;
 
 //        $query = $this->entity->
+
+//        $query = $this->entity->createQuery("SELECT v FROM {$videos} v JOIN v.codGenero g WHERE g.idGenero = 1");
     }
 
 
