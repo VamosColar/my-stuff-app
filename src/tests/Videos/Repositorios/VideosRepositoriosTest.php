@@ -36,7 +36,7 @@ class VideosRepositorTest extends KernelTestCase
             'vide_ano' => '2017',
             'vide_duracao' => '1h 56m',
             'cod_genero' => 1,
-            'cod_video_tipo' => 9,
+            'cod_video_tipo' => 1,
             'vide_imagem_diretorio' => '/application/public/upload/my-stuff.jpg',
         ];
 
@@ -54,5 +54,31 @@ class VideosRepositorTest extends KernelTestCase
         $all = $repository->all();
 
         $this->assertNotEmpty($all);
+        $this->assertNotNull($all);
+        $this->assertInternalType('array', $all);
+    }
+
+    public function testObtendoDadosPorNomeDoTitulo()
+    {
+        $repository = new VideosRepositorios($this->em);
+
+        $input = [
+            'vide_titulo' => 'Est',
+        ];
+
+        $all = $repository->all($input);
+
+        $this->assertInternalType('array', $all);
+    }
+
+    public function testObtendoApenasUmDado()
+    {
+        $repository = new VideosRepositorios($this->em);
+
+        $id = 1;
+
+        $find = $repository->find($id);
+
+        $this->assertInternalType('array', $find);
     }
 }

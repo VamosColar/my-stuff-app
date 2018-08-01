@@ -52,12 +52,13 @@ class VideosRepositorios
     {
         $videos = Videos::class;
 
-//        if ($input != null) {
-//
-//            $query = $this->entity->createQuery("SELECT v FROM {$videos} v");
-//
-//
-//        }
+        if ($input != null) {
+
+            $query = $this->entity->createQuery("SELECT v FROM {$videos} v WHERE v.videTitulo LIKE :vide_titulo ORDER BY v.videTitulo");
+            $query->setParameter('vide_titulo', '%'.$input['vide_titulo'].'%');
+
+            return $query->getResult();
+        }
 
         $query = $this->entity->createQuery("SELECT v FROM {$videos} v");
 
@@ -68,9 +69,12 @@ class VideosRepositorios
     {
         $videos = Videos::class;
 
-//        $query = $this->entity->
+        $genero = "JOIN v.codGenero g";
+        $videoTipo = "JOIN v.codVideoTipo vt";
 
-//        $query = $this->entity->createQuery("SELECT v FROM {$videos} v JOIN v.codGenero g WHERE g.idGenero = 1");
+        $query = $this->entity->createQuery("SELECT v, g, vt FROM {$videos} v {$genero} {$videoTipo} WHERE v.idVideos = $id");
+
+        return $query->getArrayResult();
     }
 
 
