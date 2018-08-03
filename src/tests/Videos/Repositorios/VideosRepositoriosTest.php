@@ -43,7 +43,7 @@ class VideosRepositorTest extends KernelTestCase
 
         $save = $repository->save($input);
 
-        $this->assertTrue($save);
+        $this->assertInternalType('object', $save);
     }
 
     public function testObtendotodosOsDados()
@@ -96,6 +96,19 @@ class VideosRepositorTest extends KernelTestCase
             'cod_video_formato' => 2,
         ];
 
-        $repository->update($input, $id);
+        $update = $repository->update($input, $id);
+
+        $this->assertInternalType('object', $update);
+    }
+
+    public function testRemovendoDados()
+    {
+        $repository = new VideosRepositorios($this->em);
+
+        $id = 1;
+
+        $delete = $repository->delete($id);
+
+        $this->assertTrue($delete);
     }
 }

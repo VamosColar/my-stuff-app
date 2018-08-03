@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VideosRepository")
@@ -22,8 +23,6 @@ class Videos
     protected $videImagemDiretorio;
 
     protected $videSeries;
-
-    protected $codGenero;
 
     protected $codVideoFormato;
 
@@ -150,22 +149,6 @@ class Videos
     /**
      * @return mixed
      */
-    public function getCodGenero()
-    {
-        return $this->codGenero;
-    }
-
-    /**
-     * @param mixed $codGenero
-     */
-    public function setCodGenero($codGenero)
-    {
-        $this->codGenero = $codGenero;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCodVideoFormato()
     {
         return $this->codVideoFormato;
@@ -178,8 +161,6 @@ class Videos
     {
         $this->codVideoFormato = $codVideoFormato;
     }
-
-
 
     /**
      * @return mixed
@@ -276,5 +257,4 @@ class Videos
     {
         $this->deletedBy = $deletedBy;
     }
-
 }
