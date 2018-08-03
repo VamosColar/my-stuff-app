@@ -19,12 +19,41 @@ class GeneroFixtures extends Fixture
     {
         $dados = [
             'Ação',
+            'Animação',
+            'Aventura',
+            'Cinema de arte',
+            'Chanchada',
+            'Cinema catástrofe',
             'Comédia',
+            'Cult',
+            'Dança',
+            'Documentário',
+            'Docuficção',
             'Drama',
+            'Espionagem',
+            'Erótico',
+            'Fantasia',
+            'Faroeste',
+            'Ficção científica',
+            'Séries',
+            'Guerra',
+            'Machinima',
+            'Masala',
+            'Musical',
+            'Filme noir',
+            'Policial',
+            'Pornográfico',
+            'Robologia',
+            'Romance',
+            'Seriado',
             'Suspense',
+            'Terror',
+            'Trash'
         ];
 
-        for ($i = 0; $i < 4; $i++) {
+        $count = count($dados);
+
+        for ($i = 0; $i < $count; $i++) {
             $genero = new Genero();
             $genero->setGeneNome($dados[$i]);
             $manager->persist($genero);

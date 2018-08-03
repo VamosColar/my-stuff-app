@@ -35,9 +35,8 @@ class VideosRepositorTest extends KernelTestCase
             'vide_descricao' => 'Um empresário.',
             'vide_ano' => '2017',
             'vide_duracao' => '1h 56m',
-            'cod_genero' => 1,
-            'cod_video_tipo' => 1,
             'vide_imagem_diretorio' => '/application/public/upload/my-stuff.jpg',
+            'cod_video_formato' => 1,
         ];
 
         $repository = new VideosRepositorios($this->em);
@@ -80,5 +79,23 @@ class VideosRepositorTest extends KernelTestCase
         $find = $repository->find($id);
 
         $this->assertInternalType('array', $find);
+    }
+
+    public function testAlterandoUmDadoPeloId()
+    {
+        $repository = new VideosRepositorios($this->em);
+
+        $id = 1;
+
+        $input = [
+            'vide_titulo' => 'O Estrangeiro editado!',
+            'vide_descricao' => 'Um empresário editado.',
+            'vide_ano' => '2018',
+            'vide_duracao' => '2h 35m',
+            'vide_imagem_diretorio' => '/application/public/upload/my-stuff.jpg',
+            'cod_video_formato' => 2,
+        ];
+
+        $repository->update($input, $id);
     }
 }

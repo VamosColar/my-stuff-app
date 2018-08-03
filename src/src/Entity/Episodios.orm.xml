@@ -8,10 +8,11 @@ http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
         <id name="idEpisodios" column="id_episodios" type="integer">
             <generator strategy="AUTO"/>
         </id>
-        <field name="episNomeTraduzido" column="epis_nome_traduzido" type="string" length="255"/>
-        <field name="episNomeOriginal" column="epis_nome_original" type="string" length="255"/>
+        <field name="episTitulo" column="epis_titulo" type="string" length="255" />
+        <field name="episTituloOriginal" column="epis_titulo_original" type="string" length="255" nullable="true"/>
+        <field name="episTemporada" column="epis_temporada" type="string" length="255" nullable="true"/>
         <field name="episDuracao" column="epis_duracao" type="string" length="255"/>
-        <field name="episDescricao" column="epis_descricao" type="string" length="255"/>
+        <field name="episDescricao" column="epis_descricao" type="string" length="255" nullable="true"/>
 
         <many-to-one field="codVideos" target-entity="Videos">
             <join-column name="cod_videos" referenced-column-name="id_videos" />

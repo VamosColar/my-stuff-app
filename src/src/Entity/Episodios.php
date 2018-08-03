@@ -11,9 +11,11 @@ class Episodios
 {
     private $idEpisodios;
 
-    protected $episNomeTraduzido;
+    protected $episTitulo;
 
-    protected $episNomeOriginal;
+    protected $episTituloOriginal;
+
+    protected $episTemporada;
 
     protected $episDuracao;
 

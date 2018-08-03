@@ -2,9 +2,8 @@
 
 namespace MyStuff\Videos\Repositorios;
 
-use App\Entity\Genero;
 use App\Entity\Videos;
-use App\Entity\VideoTipo;
+use App\Entity\VideoFormato;
 use Doctrine\ORM\EntityManager;
 
 class VideosRepositorios
@@ -20,16 +19,10 @@ class VideosRepositorios
     {
         $date = new \DateTime();
 
-        $genero = $this->entity->find(Genero::class, $input['cod_genero']);
+        $videoFormato = $this->entity->find(VideoFormato::class, $input['cod_video_formato']);
 
-        if ($genero == null) {
-            throw new \Exception('O Gênero não foi encontrado.');
-        }
-
-        $videoTipo = $this->entity->find(VideoTipo::class, $input['cod_video_tipo']);
-
-        if ($videoTipo == null) {
-            throw new \Exception('O Video Tipo não foi encontrado.');
+        if ($videoFormato == null) {
+            throw new \Exception('O Formato de Video não foi encontrado.');
         }
 
         $videos = new Videos();
@@ -37,8 +30,7 @@ class VideosRepositorios
         $videos->setVideDescricao($input['vide_descricao']);
         $videos->setVideAno($input['vide_ano']);
         $videos->setVideDuracao($input['vide_duracao']);
-        $videos->setCodGenero($genero);
-        $videos->setCodVideoTipo($videoTipo);
+        $videos->setCodVideoFormato($videoFormato);
         $videos->setVideImagemDiretorio($input['vide_imagem_diretorio']);
         $videos->setCreatedAt($date);
         $videos->setCreatedBy(1);
@@ -55,7 +47,7 @@ class VideosRepositorios
         if ($input != null) {
 
             $query = $this->entity->createQuery("SELECT v FROM {$videos} v WHERE v.videTitulo LIKE :vide_titulo ORDER BY v.videTitulo");
-            $query->setParameter('vide_titulo', '%'.$input['vide_titulo'].'%');
+            $query->setParameter('vide_titulo', '%' . $input['vide_titulo'] . '%');
 
             return $query->getResult();
         }
@@ -69,13 +61,20 @@ class VideosRepositorios
     {
         $videos = Videos::class;
 
-        $genero = "JOIN v.codGenero g";
-        $videoTipo = "JOIN v.codVideoTipo vt";
+        $videoTipo = "JOIN v.codVideoFormato vf";
 
-        $query = $this->entity->createQuery("SELECT v, g, vt FROM {$videos} v {$genero} {$videoTipo} WHERE v.idVideos = $id");
+        $query = $this->entity->createQuery("SELECT v, vf FROM {$videos} v {$videoTipo} WHERE v.idVideos = $id");
 
         return $query->getArrayResult();
     }
 
+    public function update(array $input, int $id)
+    {
+        $date = new \DateTime();
 
+        $find = $this->find($id);
+
+        dd($find);
+
+    }
 }

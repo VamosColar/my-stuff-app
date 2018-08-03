@@ -21,11 +21,11 @@ class Videos
 
     protected $videImagemDiretorio;
 
-    protected $videTemporadaNumero;
+    protected $videSeries;
 
     protected $codGenero;
 
-    protected $codVideoTipo;
+    protected $codVideoFormato;
 
     protected $createdAt;
 
@@ -40,6 +40,8 @@ class Videos
     protected $deletedBy;
 
     protected $elencos;
+
+    protected $genero;
 
     /**
      * @return mixed
@@ -132,17 +134,17 @@ class Videos
     /**
      * @return mixed
      */
-    public function getVideTemporadaNumero()
+    public function getVideSeries()
     {
-        return $this->videTemporadaNumero;
+        return $this->videSeries;
     }
 
     /**
-     * @param mixed $videTemporadaNumero
+     * @param mixed $videSeries
      */
-    public function setVideTemporadaNumero($videTemporadaNumero)
+    public function setVideSeries($videSeries)
     {
-        $this->videTemporadaNumero = $videTemporadaNumero;
+        $this->videSeries = $videSeries;
     }
 
     /**
@@ -164,18 +166,20 @@ class Videos
     /**
      * @return mixed
      */
-    public function getCodVideoTipo()
+    public function getCodVideoFormato()
     {
-        return $this->codVideoTipo;
+        return $this->codVideoFormato;
     }
 
     /**
-     * @param mixed $codVideoTipo
+     * @param mixed $codVideoFormato
      */
-    public function setCodVideoTipo($codVideoTipo)
+    public function setCodVideoFormato($codVideoFormato)
     {
-        $this->codVideoTipo = $codVideoTipo;
+        $this->codVideoFormato = $codVideoFormato;
     }
+
+
 
     /**
      * @return mixed

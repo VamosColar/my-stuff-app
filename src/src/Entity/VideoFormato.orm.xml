@@ -4,11 +4,11 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
 http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\Entity\VideoTipo">
-        <id name="idVideoTipo" column="id_video_tipo" type="integer">
+    <entity name="App\Entity\VideoFormato">
+        <id name="idVideoFormato" column="id_video_formato" type="integer">
             <generator strategy="AUTO"/>
         </id>
-        <field name="videTipNome" column="vide_tip_nome" type="string" length="255"/>
+        <field name="videForNome" column="vide_for_nome" type="string" length="255"/>
     </entity>
 
 </doctrine-mapping>
